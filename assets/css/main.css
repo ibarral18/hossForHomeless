@@ -2701,9 +2701,9 @@ button:disabled,
   display: block;
   color: #00aeff;
   position: absolute;
-  left: 1.75em;
-  top: 2.75em;
-  font-size: 1.5em;
+  left: 3.75em;
+  top: 4.2em;
+  font-size: 1em;
 }
 
 .features li:nth-child(1) {

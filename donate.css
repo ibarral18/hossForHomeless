@@ -1,27 +1,17 @@
-.StripeElement {
-  box-sizing: border-box;
-
-  height: 40px;
-
-  padding: 10px 12px;
-
-  border: 1px solid transparent;
-  border-radius: 4px;
-  background-color: white;
-
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-}
-
-.StripeElement--focus {
-  box-shadow: 0 1px 3px 0 #cfd7df;
-}
-
-.StripeElement--invalid {
-  border-color: #fa755a;
-}
-
-.StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+#caption {
+  background-color: white !important;
+  bottom: 0;
+  color: black;
+  display: block;
+  overflow: hidden;
+  padding: 2px 5px;
+  position: absolute;
+  text-overflow: ellipsis;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  white-space: nowrap;
+  width: 100%;
 }
