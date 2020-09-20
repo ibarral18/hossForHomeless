@@ -53,35 +53,79 @@
 <script src="https://js.stripe.com/v3"></script>
 
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-price_1H7oGEE7wc1CUE78s5c6YZr7"
-  role="link"
-  type="button"
->
-  Checkout
-</button>
+<div style = "display: flex;">
+  <button
+    class = "button primary"
+    id="checkout-button-price_1HTKN2LAUVYaNrQiIbebrTeu"
+    role="link"
+    type="button"
+  >
+    $5 donation
+  </button>
 
-<div id="error-message"></div>
+  <div id="error-message"></div>
+  <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+  <button
+    class = "button"
+    id="checkout-button-price_1HTKLJLAUVYaNrQiHxXHvQLk"
+    role="link"
+    type="button"
+  >
+    $15 donation
+  </button>
+
+  <div id="error-message"></div>
+</div>
+
 
 <script>
+  (function() {
+    var stripe = Stripe('pk_test_51HTK9GLAUVYaNrQixwAsmsIvKhOwnJ6FnojjKgIi636U7H8y9UFhZCE2ad9A3aZMLJwYKETaOZjd8PhkF9NJaS5P00wz9PbZGb');
+  
+    var checkoutButton = document.getElementById('checkout-button-price_1HTKN2LAUVYaNrQiIbebrTeu');
+    checkoutButton.addEventListener('click', function () {
+      // When the customer clicks on the button, redirect
+      // them to Checkout.
+      stripe.redirectToCheckout({
+        lineItems: [{price: 'price_1HTKN2LAUVYaNrQiIbebrTeu', quantity: 1}],
+        mode: 'payment',
+        // Do not rely on the redirect to the successUrl for fulfilling
+        // purchases, customers may not always reach the success_url after
+        // a successful payment.
+        // Instead use one of the strategies described in
+        // https://stripe.com/docs/payments/checkout/fulfill-orders
+        successUrl: 'https://ibarral18.github.io/hossForHomeless/',
+        cancelUrl: 'https://ibarral18.github.io/hossForHomeless/',
+      })
+      .then(function (result) {
+        if (result.error) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, display the localized error message to your customer.
+          var displayError = document.getElementById('error-message');
+          displayError.textContent = result.error.message;
+        }
+      });
+    });
+  })();
+  </script>
+<script>
 (function() {
-  var stripe = Stripe('pk_test_51GummRE7wc1CUE78sZpmdyd63weoAGEEcuhf4Qd8r0JDGMxsOwYbssybHsiYth8A9AHgSozPRFhvR76tS04s5xZ800VPWtQzNC');
+  var stripe = Stripe('pk_test_51HTK9GLAUVYaNrQixwAsmsIvKhOwnJ6FnojjKgIi636U7H8y9UFhZCE2ad9A3aZMLJwYKETaOZjd8PhkF9NJaS5P00wz9PbZGb');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1H7oGEE7wc1CUE78s5c6YZr7');
+  var checkoutButton = document.getElementById('checkout-button-price_1HTKLJLAUVYaNrQiHxXHvQLk');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1H7oGEE7wc1CUE78s5c6YZr7', quantity: 1}],
+      lineItems: [{price: 'price_1HTKLJLAUVYaNrQiHxXHvQLk', quantity: 1}],
       mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: window.location.protocol + '//ibarral18.github.io/hossForHomeless/index.html',
-      cancelUrl: window.location.protocol + '//ibarral18.github.io/hossForHomeless/donate.html',
+      // https://stripe.com/docs/payments/checkout/fulfill-orders
+      successUrl: 'https://ibarral18.github.io/hossForHomeless/',
+      cancelUrl: 'https://ibarral18.github.io/hossForHomeless/',
     })
     .then(function (result) {
       if (result.error) {
@@ -123,6 +167,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
+    
   </body>
 </html>
