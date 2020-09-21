@@ -56,81 +56,14 @@
           <div class="inner">
             <section>
               <h4>Please Consider Donating</h4>
-              <!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
-
+              <p></p>
 <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-  <input type="hidden" name="cmd" value="_s-xclick" />
-  <input type="hidden" name="hosted_button_id" value="KW2GGKVBTLPLW" />
-  <input type="submit" style = "background-color: #fff084;" class = "button" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" value = "Donate" />
-  </form>
-  
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="KW2GGKVBTLPLW" />
+                <input type="submit" style = "background-color: #d3d4e4;" class = "button" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" value = "Donate" />
+              </form>
 
-  <div id="error-message"></div>
-</div>
-
-
-<script>
-  (function() {
-    var stripe = Stripe('pk_test_51HTK9GLAUVYaNrQixwAsmsIvKhOwnJ6FnojjKgIi636U7H8y9UFhZCE2ad9A3aZMLJwYKETaOZjd8PhkF9NJaS5P00wz9PbZGb');
-  
-    var checkoutButton = document.getElementById('checkout-button-price_1HTKN2LAUVYaNrQiIbebrTeu');
-    checkoutButton.addEventListener('click', function () {
-      // When the customer clicks on the button, redirect
-      // them to Checkout.
-      stripe.redirectToCheckout({
-        lineItems: [{price: 'price_1HTKN2LAUVYaNrQiIbebrTeu', quantity: 1}],
-        mode: 'payment',
-        // Do not rely on the redirect to the successUrl for fulfilling
-        // purchases, customers may not always reach the success_url after
-        // a successful payment.
-        // Instead use one of the strategies described in
-        // https://stripe.com/docs/payments/checkout/fulfill-orders
-        successUrl: 'https://ibarral18.github.io/hossForHomeless/',
-        cancelUrl: 'https://ibarral18.github.io/hossForHomeless/',
-      })
-      .then(function (result) {
-        if (result.error) {
-          // If `redirectToCheckout` fails due to a browser or network
-          // error, display the localized error message to your customer.
-          var displayError = document.getElementById('error-message');
-          displayError.textContent = result.error.message;
-        }
-      });
-    });
-  })();
-  </script>
-<script>
-(function() {
-  var stripe = Stripe('pk_test_51HTK9GLAUVYaNrQixwAsmsIvKhOwnJ6FnojjKgIi636U7H8y9UFhZCE2ad9A3aZMLJwYKETaOZjd8PhkF9NJaS5P00wz9PbZGb');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1HTKLJLAUVYaNrQiHxXHvQLk');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HTKLJLAUVYaNrQiHxXHvQLk', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfill-orders
-      successUrl: 'https://ibarral18.github.io/hossForHomeless/',
-      cancelUrl: 'https://ibarral18.github.io/hossForHomeless/',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
               <hr />
             </section>
           </div>
