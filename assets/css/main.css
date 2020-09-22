@@ -3744,7 +3744,7 @@ body.is-menu-visible #menu {
   color: inherit;
   font-size: 0.8em;
   height: 8.5em;
-  left: 50%;
+  left: 50.45%;
   letter-spacing: 0.225em;
   margin-left: -8.5em;
   opacity: 1;
@@ -3810,6 +3810,12 @@ body.is-menu-visible #menu {
 
   #banner .more {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  #banner .more {
+    padding-top: 10px;
   }
 }
 
